@@ -1,0 +1,35 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../lib/utils";
+
+const containerVariants = cva("w-full mx-auto", {
+  variants: {
+    variant: {
+      fluid: "px-4 sm:px-8",
+      fixed: "max-w-5xl px-4 sm:px-8",
+    },
+  },
+  defaultVariants: {
+    variant: "fixed",
+  },
+});
+
+type ContainerVariants = VariantProps<typeof containerVariants>;
+
+type Props = ContainerVariants & {
+  as?: "div" | "section" | "main" | "header" | "footer";
+  class?: string;
+};
+
+const {
+  as = "div",
+  variant = "fixed",
+  class: className,
+} = Astro.props as Props;
+
+const Tag = as;
+---
+
+<Tag class={cn(containerVariants({ variant }), className)}>
+  <slot />
+</Tag>

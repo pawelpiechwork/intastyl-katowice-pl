@@ -18,6 +18,14 @@
   --color-brand-950: #450c1d;
 }
 
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
 @layer base {
   a:focus-visible,
   button:focus-visible,
