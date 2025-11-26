@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@fontsource/dm-serif-display";
+@import "@fontsource/poppins";
+
+@theme {
+  --font-serif: "DM Serif Display", serif;
+  --font-sans: "Poppins", sans-serif;
+  --color-brand-50: #fef2f3;
+  --color-brand-100: #fce7e9;
+  --color-brand-200: #f9d2d8;
+  --color-brand-300: #f5acb7;
+  --color-brand-400: #ee7e91;
+  --color-brand-500: #e3506d;
+  --color-brand-600: #ce3056;
+  --color-brand-700: #ae2248;
+  --color-brand-800: #8b1e3f;
+  --color-brand-900: #7d1e3d;
+  --color-brand-950: #450c1d;
+}
+
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-shadow;
+  }
+}
