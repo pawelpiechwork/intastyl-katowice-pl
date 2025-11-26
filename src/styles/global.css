@@ -22,7 +22,6 @@
   a:focus-visible,
   button:focus-visible,
   [tabindex]:not([tabindex="-1"]):focus-visible {
-    @apply outline-none ring-4 ring-blue-500 ring-offset-4 ring-offset-white transition-shadow relative z-50 ;
-    transition: none;
+    @apply outline-none ring-4 ring-blue-500 ring-offset-0 ring-offset-transparent transition-none relative z-50;
   }
 }
