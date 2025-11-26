@@ -1,0 +1,46 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../lib/utils";
+
+const buttonVariants = cva(
+  `
+    inline-flex items-center justify-center
+    rounded-sm
+    bg-brand-600 
+    font-medium
+    text-white
+    transition-colors duration-150
+    hover:bg-brand-700
+    active:bg-brand-800
+    cursor-pointer
+  `,
+  {
+    variants: {
+      variant: {
+        regular: "h-10 px-5 text-sm",
+        small: "h-8  px-4 text-xs",
+      },
+    },
+    defaultVariants: {
+      variant: "regular",
+    },
+  },
+);
+
+type Props = VariantProps<typeof buttonVariants>;
+
+const { variant } = Astro.props as Props;
+---
+
+<button
+  class={cn(
+    `
+      inline-flex items-center justify-center
+      disabled:opacity-50 disabled:pointer-events-none
+    `,
+  )}
+>
+  <span class={buttonVariants({ variant })}>
+    <slot />
+  </span>
+</button>
