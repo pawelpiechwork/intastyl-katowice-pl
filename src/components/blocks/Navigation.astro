@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import { Menu, X } from "@lucide/astro";
+import logo from "../../assets/intastyl-logo.svg";
+import Button from "../ui/Button.astro";
+import Container from "../ui/Container.astro";
+import Typography from "../ui/Typography.astro";
+
+const navLinks = [
+  { href: "/", label: "Strona główna" },
+  { href: "/kontakt", label: "Kontakt" },
+];
+
+const navCta = [{ href: "/cennik", label: "Sprawdź nasz cennik" }];
+---
+
+<nav class="bg-white border-b border-slate-100" aria-label="Główna nawigacja">
+  <Container
+    variant="fluid"
+    class="flex flex-row flex-nowrap justify-between items-center h-18 md:h-20"
+  >
+    <!-- Logo: visible and announced to screen readers -->
+    <a
+      class="relative cursor-pointer hover:opacity-85"
+      href="/"
+      aria-label="Przejdź do strony głównej"
+    >
+      <Image
+        class="w-20 md:w-24 select-none"
+        src={logo}
+        alt="Intastyl - logo"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Desktop navigation: only list exposed to screen readers -->
+    <ul
+      class="hidden md:flex list-none flex-row flex-nowrap gap-8 items-center"
+    >
+      <li>
+        <ul class="flex flex-row flex-nowrap gap-4 items-center">
+          {
+            navLinks.map((item) => (
+              <li>
+                <a href={item.href} class="inline-block">
+                  <Typography as="span" class="text-sm">
+                    {item.label}
+                  </Typography>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
+
+      {
+        navCta.map((item) => (
+          <li>
+            <!-- CTA: link with visual button inside (same as original) -->
+            <a href={item.href} class="inline-block" aria-label={item.label}>
+              <Button
+                variant="small"
+                tabindex="-1"
+                class="pointer-events-none"
+                aria-hidden="true"
+              >
+                {item.label}
+              </Button>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Mobile toggle: hidden from screen readers, visual only -->
+    <button
+      type="button"
+      id="nav-toggle"
+      class="group inline-flex items-center justify-center p-3 md:hidden cursor-pointer"
+      aria-hidden="true"
+      aria-expanded="false"
+      tabindex="-1"
+    >
+      <!-- Open icon -->
+      <Menu class="size-5 group-aria-expanded:hidden text-[#340916]" aria-hidden="true" />
+      <!-- Close icon -->
+      <X class="size-5 hidden group-aria-expanded:block text-[#340916]" aria-hidden="true" />
+    </button>
+  </Container>
+
+  <!-- Mobile navigation: hidden from screen readers, visual only -->
+  <nav
+    id="primary-navigation"
+    class="hidden md:hidden border-t border-slate-100"
+    aria-hidden="true"
+  >
+    <ul class="flex flex-col divide-y divide-slate-100">
+      {
+        [...navLinks, ...navCta].map((item) => (
+          <li>
+            <a href={item.href} class="block py-4 hover:bg-slate-50">
+              <Container variant="fluid">
+                <Typography class="text-sm">{item.label}</Typography>
+              </Container>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</nav>
+
+<script>
+  // Get elements
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("primary-navigation");
+
+  if (toggle && menu) {
+    // Toggle mobile menu (visual only)
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      const nextState = !isExpanded;
+
+      toggle.setAttribute("aria-expanded", String(nextState));
+      menu.classList.toggle("hidden");
+    });
+
+    // Close menu on Escape
+    document.addEventListener("keydown", (event) => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+      if (event.key === "Escape" && isExpanded) {
+        toggle.click();
+      }
+    });
+  }
+</script>
