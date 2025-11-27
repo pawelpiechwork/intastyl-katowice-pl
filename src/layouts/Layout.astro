@@ -21,9 +21,9 @@ import "../styles/global.css";
         class="absolute top-0 left-0 w-full h-[480px] bg-linear-to-b from-brand-200 to-brand-100 pointer-events-none"
       >
       </div>
-      <div class="relative z-10">
+      <div class="relative z-10 flex flex-col flex-1">
         <TempNav />
-        <main>
+        <main class="flex-1">
           <slot />
         </main>
         <TempFooter />
@@ -31,4 +31,3 @@ import "../styles/global.css";
     </div>
   </body>
 </html>
-
