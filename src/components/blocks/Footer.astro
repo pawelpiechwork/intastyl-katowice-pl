@@ -1,0 +1,216 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/intastyl-logo-white.svg";
+import Container from "../ui/Container.astro";
+import Typography from "../ui/Typography.astro";
+---
+
+<footer class="bg-brand-900" aria-labelledby="footer-heading">
+  <Container class="my-20 grid grid-cols-1 gap-7 lg:grid-cols-4">
+    <!-- Brand, short description and copyright -->
+    <div class="flex flex-col gap-6">
+      <!-- Logo link to homepage -->
+      <a
+        class="relative cursor-pointer hover:opacity-85"
+        href="/"
+        aria-label="Przejdź do strony głównej"
+      >
+        <Image
+          class="w-28 select-none md:w-24"
+          src={logo}
+          alt="Intastyl - logo"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Short description of the salon services -->
+      <Typography id="footer-heading" class="max-w-[220px] text-xs text-[#E4B0BA]">
+        Zadbaj o swoje włosy z najlepszymi stylistami w Katowicach! Strzyżenie,
+        koloryzacja, regeneracja
+      </Typography>
+
+      <!-- Copyright information -->
+      <Typography class="text-xs text-[#E4B0BA]">
+        <time datetime="2025">2025</time> © www.intastyl.katowice.pl
+      </Typography>
+    </div>
+
+    <!-- Navigation links -->
+    <nav
+      class="flex flex-col gap-6"
+      aria-labelledby="footer-nav-heading"
+    >
+      <Typography
+        id="footer-nav-heading"
+        variant="h4"
+        font="serif"
+        class="text-[#F9D2D8]"
+      >
+        Nawigacja
+      </Typography>
+
+      <!-- Use real links when you have final URLs -->
+      <ul class="flex flex-col gap-2">
+        <li>
+          <a href="/" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Strona główna
+            </Typography>
+          </a>
+        </li>
+        <li>
+          <a href="/cennik-fryzjerstwo-damskie" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Cennik fryzjerstwo damskie
+            </Typography>
+          </a>
+        </li>
+        <li>
+          <a href="/cennik-fryzjerstwo-meskie" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Cennik fryzjerstwo męskie
+            </Typography>
+          </a>
+        </li>
+        <li>
+          <a href="/cennik-kosmetyka" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Cennik kosmetyka
+            </Typography>
+          </a>
+        </li>
+        <li>
+          <a href="/cennik-dietetyka" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Cennik dietetyka
+            </Typography>
+          </a>
+        </li>
+        <li>
+          <a href="/kontakt" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]">
+            <Typography class="text-xs text-[#E4B0BA]">
+              Kontakt
+            </Typography>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Contact info -->
+    <section
+      class="flex flex-col gap-6"
+      aria-labelledby="footer-contact-heading"
+    >
+      <Typography
+        id="footer-contact-heading"
+        variant="h4"
+        font="serif"
+        class="text-[#F9D2D8]"
+      >
+        Kontakt
+      </Typography>
+
+      <!-- Address element helps screen readers understand contact info -->
+      <address class="not-italic">
+        <ul class="flex flex-col gap-2">
+          <li>
+            <!-- Clickable phone number for mobile users -->
+            <a
+              href="tel:+48322058092"
+              class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]"
+            >
+              <Typography class="text-xs text-[#E4B0BA]">
+                +48 32 205 80 92
+              </Typography>
+            </a>
+          </li>
+          <li>
+            <a
+              href="tel:+48504245860"
+              class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F9D2D8]"
+            >
+              <Typography class="text-xs text-[#E4B0BA]">
+                +48 504 245 860
+              </Typography>
+            </a>
+          </li>
+          <li>
+            <!-- You can wrap this in a map link later if needed -->
+            <Typography class="text-xs text-[#E4B0BA]">
+              Rolna 60a, Katowice
+            </Typography>
+          </li>
+        </ul>
+      </address>
+    </section>
+
+    <!-- Opening hours -->
+    <section
+      class="flex flex-col gap-6"
+      aria-labelledby="footer-opening-heading"
+    >
+      <Typography
+        id="footer-opening-heading"
+        variant="h4"
+        font="serif"
+        class="text-[#F9D2D8]"
+      >
+        Godziny otwarcia
+      </Typography>
+
+      <!-- Native table is more accessible than divs with table roles -->
+      <table
+        class="w-fit text-left text-xs text-[#E4B0BA]"
+      >
+        <!-- Screen-reader-only caption; relies on a global sr-only class -->
+        <caption class="sr-only">
+          Godziny otwarcia salonu Intastyl
+        </caption>
+        <tbody>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Poniedziałek
+            </th>
+            <td>09:00 - 19:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Wtorek
+            </th>
+            <td>09:00 - 19:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Środa
+            </th>
+            <td>09:00 - 19:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Czwartek
+            </th>
+            <td>09:00 - 19:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Piątek
+            </th>
+            <td>09:00 - 19:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Sobota
+            </th>
+            <td>08:00 - 13:00</td>
+          </tr>
+          <tr>
+            <th scope="row" class="pr-4 font-normal">
+              Niedziela
+            </th>
+            <td>Zamknięte</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </Container>
+</footer>

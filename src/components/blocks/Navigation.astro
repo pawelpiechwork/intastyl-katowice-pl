@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Menu, X } from "@lucide/astro";
-import logo from "../../assets/intastyl-logo.svg";
+import logo from "../../assets/intastyl-logo-black.svg";
 import Button from "../ui/Button.astro";
 import Container from "../ui/Container.astro";
 import Typography from "../ui/Typography.astro";
@@ -111,12 +111,10 @@ const navCta = [{ href: "/cennik", label: "Sprawdź nasz cennik" }];
 </nav>
 
 <script>
-  // Get elements
   const toggle = document.getElementById("nav-toggle");
   const menu = document.getElementById("primary-navigation");
 
   if (toggle && menu) {
-    // Toggle mobile menu (visual only)
     toggle.addEventListener("click", () => {
       const isExpanded = toggle.getAttribute("aria-expanded") === "true";
       const nextState = !isExpanded;
@@ -125,7 +123,6 @@ const navCta = [{ href: "/cennik", label: "Sprawdź nasz cennik" }];
       menu.classList.toggle("hidden");
     });
 
-    // Close menu on Escape
     document.addEventListener("keydown", (event) => {
       const isExpanded = toggle.getAttribute("aria-expanded") === "true";
 
