@@ -4,6 +4,7 @@ import heroUnitImage from "../assets/hero-unit-image.png";
 import Badge from "../components/ui/Badge.astro";
 import Button from "../components/ui/Button.astro";
 import Container from "../components/ui/Container.astro";
+import SocialProof from "../components/ui/SocialProof.astro";
 import Typography from "../components/ui/Typography.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -16,7 +17,7 @@ const base = import.meta.env.BASE_URL;
       class="flex flex-col lg:flex-row justify-between items-center my-20 md:my-32 lg:my-48 gap-12"
     >
       <div class="flex flex-col gap-4 md:gap-6 items-center text-center lg:items-start lg:text-left w-full">
-        <Badge class="mb-1">Rolna 60a, Katowice</Badge>
+        <Badge class="mb-1">Kompleksowa oferta usług w atrakcyjnych cenach</Badge>
         <Typography
           as="h1"
           variant="h1"
@@ -43,10 +44,10 @@ const base = import.meta.env.BASE_URL;
         </Typography>
 
         <a href={`${base}cennik`}>
-          <Button variant="regular" class="mb-5">Sprawdź nasz cennik</Button>
+          <Button variant="regular" class="mb-8">Sprawdź nasz cennik</Button>
         </a>
 
-        <span class="bg-yellow-100">social proof</span>
+        <SocialProof />
       </div>
       <div class="w-full flex justify-center items-center">
         <Image

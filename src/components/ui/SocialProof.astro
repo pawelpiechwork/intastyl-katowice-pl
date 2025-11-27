@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import socialProofImage1 from "../../assets/sp-1.jpg";
+import socialProofImage2 from "../../assets/sp-2.jpg";
+import socialProofImage3 from "../../assets/sp-3.jpg";
+import socialProofImage4 from "../../assets/sp-4.jpg";
+---
+
+<div class="inline-flex flex-col md:flex-row items-center gap-4">
+  <div class="flex -space-x-3">
+    <Image
+      src={socialProofImage1}
+      alt=""
+      class="h-10 w-10 rounded-full border-4 border-brand-100 object-cover"
+    />
+    <Image
+      src={socialProofImage2}
+      alt=""
+      class="h-10 w-10 rounded-full border-4 border-brand-100 object-cover"
+    />
+    <Image
+      src={socialProofImage3}
+      alt=""
+      class="h-10 w-10 rounded-full border-4 border-brand-100 object-cover"
+    />
+    <Image
+      src={socialProofImage4}
+      alt=""
+      class="h-10 w-10 rounded-full border-4 border-brand-100 object-cover"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <div class="flex items-center justify-center md:justify-start gap-0 text-[#4a1024] mb-1">
+      {
+        Array.from({ length: 5 }).map(() => (
+          <span class="text-base leading-none">★</span>
+        ))
+      }
+    </div>
+    <div class="text-sm font-medium text-[#8b6f7d] flex flex-col leading-tight text-center md:text-left">
+      <span>4,7 na 5 na podstawie ponad 180 opinii</span>
+      <span>z Google i Facebook</span>
+    </div>
+  </div>
+</div>
