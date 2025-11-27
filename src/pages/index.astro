@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import heroUnitImage from "../assets/hero-unit-image.png";
 import Badge from "../components/ui/Badge.astro";
 import Button from "../components/ui/Button.astro";
 import Container from "../components/ui/Container.astro";
@@ -10,29 +12,50 @@ const base = import.meta.env.BASE_URL;
 
 <Layout>
   <Container>
-    <div class="flex flex-col gap-4 md:gap-6 items-start my-20 md:my-32 lg:my-48">
-      <Badge>Rolna 60a, Katowice</Badge>
-      <Typography as="h1" variant="h1" font="serif" weight="regular" class="" }>
-        Twoje włosy, nasza<br />pasja - Profesjonalny<br /> salon fryzjerski w<br
-        /> Katowicach
-      </Typography>
+    <div
+      class="flex flex-col lg:flex-row justify-between items-center my-20 md:my-32 lg:my-48 gap-12"
+    >
+      <div class="flex flex-col gap-4 md:gap-6 items-center text-center lg:items-start lg:text-left w-full">
+        <Badge class="mb-1">Rolna 60a, Katowice</Badge>
+        <Typography
+          as="h1"
+          variant="h1"
+          font="serif"
+          weight="regular"
+          class=""
+          }
+        >
+          Twoje włosy, nasza<br />pasja - Profesjonalny<br /> salon fryzjerski w<br
+          /> Katowicach
+        </Typography>
 
-      <Typography
-        as="p"
-        variant="p"
-        font="sans"
-        weight="regular"
-        italic="true"
-        class="max-w-lg"
-      >
-        Zadbaj o swoje włosy z najlepszymi stylistami w Katowicach! Strzyżenie,
-        koloryzacja, regeneracja – wszystko, czego potrzebujesz, by wyglądać i
-        czuć się wyjątkowo.
-      </Typography>
+        <Typography
+          as="p"
+          variant="p"
+          font="sans"
+          weight="regular"
+          italic="true"
+          class="max-w-lg"
+        >
+          Zadbaj o swoje włosy z najlepszymi stylistami w Katowicach!
+          Strzyżenie, koloryzacja, regeneracja - wszystko, czego potrzebujesz,
+          by wyglądać i czuć się wyjątkowo.
+        </Typography>
 
-      <a href={`${base}cennik`}>
-        <Button variant="regular">Sprawdź nasz cennik</Button>
-      </a>
+        <a href={`${base}cennik`}>
+          <Button variant="regular" class="mb-5">Sprawdź nasz cennik</Button>
+        </a>
+
+        <span class="bg-yellow-100">social proof</span>
+      </div>
+      <div class="w-full flex justify-center items-center">
+        <Image
+          src={heroUnitImage}
+          alt="TODO"
+          class="max-w-full transform rotate-2 rounded-sm border-8 border-brand-50"
+          loading="eager"
+        />
+      </div>
     </div>
   </Container>
 </Layout>

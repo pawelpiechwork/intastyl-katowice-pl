@@ -23,9 +23,9 @@ const buttonVariants = cva(
   },
 );
 
-type Props = VariantProps<typeof buttonVariants>;
+type Props = VariantProps<typeof buttonVariants> & { class: string };
 
-const { variant } = Astro.props as Props;
+const { variant, class: className } = Astro.props as Props;
 ---
 
 <button
@@ -34,6 +34,7 @@ const { variant } = Astro.props as Props;
       inline-flex items-center justify-center
       disabled:opacity-50 disabled:pointer-events-none
     `,
+    className
   )}
 >
   <span class={buttonVariants({ variant })}>
