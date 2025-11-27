@@ -8,7 +8,7 @@ import Typography from "../ui/Typography.astro";
 <footer class="bg-brand-900" aria-labelledby="footer-heading">
   <Container class="my-20 grid grid-cols-1 gap-7 lg:grid-cols-4">
     <!-- Brand, short description and copyright -->
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-8">
       <!-- Logo link to homepage -->
       <a
         class="relative cursor-pointer hover:opacity-85"
@@ -39,7 +39,7 @@ import Typography from "../ui/Typography.astro";
     </div>
 
     <!-- Navigation links -->
-    <nav class="flex flex-col gap-6" aria-labelledby="footer-nav-heading">
+    <nav class="flex flex-col gap-8" aria-labelledby="footer-nav-heading">
       <Typography
         id="footer-nav-heading"
         variant="h4"
@@ -50,7 +50,7 @@ import Typography from "../ui/Typography.astro";
       </Typography>
 
       <!-- Use real links when you have final URLs -->
-      <ul class="flex flex-col gap-2">
+      <ul class="flex flex-col gap-4">
         <li>
           <a href="/">
             <Typography class="text-xs text-[#E4B0BA]">
@@ -103,7 +103,7 @@ import Typography from "../ui/Typography.astro";
 
     <!-- Contact info -->
     <section
-      class="flex flex-col gap-6"
+      class="flex flex-col gap-8"
       aria-labelledby="footer-contact-heading"
     >
       <Typography
@@ -117,7 +117,7 @@ import Typography from "../ui/Typography.astro";
 
       <!-- Address element helps screen readers understand contact info -->
       <address class="not-italic">
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-col gap-4">
           <li>
             <!-- Clickable phone number for mobile users -->
             <a href="tel:+48322058092">
@@ -145,7 +145,7 @@ import Typography from "../ui/Typography.astro";
 
     <!-- Opening hours -->
     <section
-      class="flex flex-col gap-6"
+      class="flex flex-col gap-8"
       aria-labelledby="footer-opening-heading"
     >
       <Typography
@@ -157,41 +157,41 @@ import Typography from "../ui/Typography.astro";
         Godziny otwarcia
       </Typography>
 
-      <!-- Native table is more accessible than divs with table roles -->
-      <table class="w-fit text-left text-xs text-[#E4B0BA]">
-        <!-- Screen-reader-only caption; relies on a global sr-only class -->
-        <caption class="sr-only"> Godziny otwarcia salonu Intastyl </caption>
-        <tbody>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Poniedziałek </th>
-            <td>09:00 - 19:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Wtorek </th>
-            <td>09:00 - 19:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Środa </th>
-            <td>09:00 - 19:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Czwartek </th>
-            <td>09:00 - 19:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Piątek </th>
-            <td>09:00 - 19:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Sobota </th>
-            <td>08:00 - 13:00</td>
-          </tr>
-          <tr>
-            <th scope="row" class="pr-4 font-normal"> Niedziela </th>
-            <td>Zamknięte</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- CSS Grid table with ARIA roles for accessibility -->
+      <div
+        role="table"
+        aria-label="Godziny otwarcia salonu Intastyl"
+        class="grid w-fit grid-cols-[min-content_auto] gap-4 text-left text-xs text-[#E4B0BA]"
+      >
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Poniedziałek</div>
+          <div role="cell">09:00 - 19:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Wtorek</div>
+          <div role="cell">09:00 - 19:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Środa</div>
+          <div role="cell">09:00 - 19:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Czwartek</div>
+          <div role="cell">09:00 - 19:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Piątek</div>
+          <div role="cell">09:00 - 19:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Sobota</div>
+          <div role="cell">08:00 - 13:00</div>
+        </div>
+        <div role="row" class="contents">
+          <div role="rowheader" class="font-normal">Niedziela</div>
+          <div role="cell">Zamknięte</div>
+        </div>
+      </div>
     </section>
   </Container>
 </footer>
