@@ -1,7 +1,78 @@
 ---
+import { Image } from "astro:assets";
+import { MapPin, Phone } from "@lucide/astro";
+import contactImage from "../assets/contact.jpg";
+import Badge from "../components/ui/Badge.astro";
+import Container from "../components/ui/Container.astro";
+import Typography from "../components/ui/Typography.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	Kontakt
+  <Container>
+    <div
+      class="flex flex-col md:flex-row justify-between items-center my-20 md:my-32 lg:my-48 gap-12 md:gap-20"
+    >
+      <div class="w-full flex justify-center items-center order-2 md:order-1">
+        <Image
+          src={contactImage}
+          alt="Kobieta rozmawiająca przez telefon"
+          class="w-full max-w-[422px] transform -rotate-2 rounded-sm border-8 border-brand-50"
+          loading="eager"
+        />
+      </div>
+
+      <div class="flex flex-col gap-4 md:gap-6 items-center text-center md:items-start md:text-left w-full order-1 md:order-2">
+        <Badge class="mb-1">ZADZWOŃ LUB ODWIEDŹ NAS</Badge>
+        <Typography
+          as="h1"
+          variant="h1"
+          font="serif"
+          weight="regular"
+        >
+          Skontaktuj się z nami
+        </Typography>
+
+        <Typography
+          as="p"
+          variant="p"
+          font="sans"
+          weight="regular"
+          class="max-w-lg"
+        >
+          Masz pytania, chcesz umówić wizytę lub dowiedzieć się więcej o naszych
+          usługach? Jesteśmy do Twojej dyspozycji! Skontaktuj się z nami
+          telefonicznie, mailowo lub odwiedź nas osobiście w Katowicach. Czekamy
+          na Ciebie!
+        </Typography>
+
+        <div class="flex flex-col gap-4 mt-4 w-full items-center md:items-start">
+          <a
+            href="tel:+48322058092"
+            class="flex items-center gap-3 hover:text-brand-700 transition-colors"
+          >
+            <Phone class="w-5 h-5 text-brand-900" />
+            <Typography as="span" variant="p" font="sans" weight="regular">
+              +48 32 205 80 92
+            </Typography>
+          </a>
+          <a
+            href="tel:+48504245860"
+            class="flex items-center gap-3 hover:text-brand-700 transition-colors"
+          >
+            <Phone class="w-5 h-5 text-brand-900" />
+            <Typography as="span" variant="p" font="sans" weight="regular">
+              +48 504 245 860
+            </Typography>
+          </a>
+          <div class="flex items-center gap-3">
+            <MapPin class="w-5 h-5 text-brand-900" />
+            <Typography as="span" variant="p" font="sans" weight="regular">
+              Rolna 60a, Katowice
+            </Typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
 </Layout>
