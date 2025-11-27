@@ -26,6 +26,11 @@
   font-family: var(--font-serif);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust this value based on your header height */
+}
+
 @layer base {
   a:focus-visible,
   button:focus-visible,

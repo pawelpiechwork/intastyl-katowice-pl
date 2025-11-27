@@ -4,6 +4,90 @@ import Container from "../components/ui/Container.astro";
 import SocialProof from "../components/ui/SocialProof.astro";
 import Typography from "../components/ui/Typography.astro";
 import Layout from "../layouts/Layout.astro";
+
+const pricingSections = [
+  {
+    title: "Fryzjerstwo damskie",
+    id: "fryzjerstwo-damskie",
+    items: [
+      { name: "Strzyżenie + wysuszenie", price: "70zł / 77zł / 85zł" },
+      { name: "Strzyżenie + modelowanie", price: "88zł / 95zł / 105zł" },
+      { name: "Strzyżenie + prostowanie", price: "100zł / 115zł" },
+      { name: "Strzyżenie + loki", price: "115zł" },
+      { name: "Strzyżenie na wyprostowanych", price: "75zł / 90zł" },
+      { name: "Modelowanie", price: "65zł / 78zł / 90zł" },
+      { name: "Prostowanie", price: "90zł / 105zł" },
+      { name: "Loki", price: "110zł / 120zł" },
+      { name: "Farbowanie", price: "175zł / 190zł / 240zł / 260zł" },
+      { name: "Trwała", price: "170zł / 190zł / 270zł" },
+      { name: "Pasemka", price: "185zł / 220zł / 260zł / 280zł" },
+      {
+        name: "Rozjaśnianie pasemkami",
+        price: "200zł / 230zł / 280zł / 310zł",
+      },
+      { name: "Balayage", price: "200zł / 220zł / 280zł / 310zł" },
+      { name: "Ombre", price: "260zł / 400zł" },
+      { name: "Toner", price: "70zł" },
+      { name: "Upięcie", price: "150zł / 180zł" },
+      { name: "Regeneracja", price: "150zł" },
+      { name: "Botox", price: "150zł" },
+    ],
+  },
+  {
+    title: "Fryzjerstwo męskie",
+    id: "fryzjerstwo-meskie",
+    items: [
+      { name: "Strzyżenie", price: "41zł" },
+      { name: "Strzyżenie maszynką", price: "37zł" },
+      { name: "Strzyżenie + mycie", price: "55zł" },
+      { name: "Strzyżenie + broda", price: "50zł / 60zł" },
+      { name: "Strzyżenie + farba man", price: "95zł" },
+      { name: "Strzyżenie z użyciem shavera", price: "50zł" },
+    ],
+  },
+  {
+    title: "Depilacja",
+    id: "kosmetyka",
+    items: [
+      { name: "Depilacja całe nogi", price: "130zł" },
+      { name: "Depilacja łydki/uda", price: "80zł" },
+      { name: "Depilacja pachy", price: "70zł" },
+      { name: "Depilacja bikini", price: "100zł" },
+      { name: "Depilacja twarz", price: "40zł / 70zł" },
+      { name: "Depilacja wąsik", price: "35zł" },
+      { name: "Depilacja ręce", price: "75zł" },
+    ],
+  },
+  {
+    title: "Manicure / Pedicure",
+    id: "manicure-pedicure",
+    items: [
+      { name: "Manicure", price: "80zł" },
+      { name: "Manicure japoński", price: "80zł" },
+      { name: "Manicure hybrydowy", price: "110zł" },
+      { name: "Manicure żel na płytce", price: "140zł" },
+      { name: "Manicure żel na formie", price: "155zł" },
+      { name: "Uzupełnienie", price: "140zł" },
+      { name: "Manicure French", price: "130zł" },
+      { name: "Pedicure", price: "125zł / 135zł" },
+      { name: "Pedicure hybrydowy", price: "155zł" },
+      { name: "Naprawa paznokcia", price: "25zł" },
+      { name: "Zabieg pielęgnacyjny dłoni", price: "80zł" },
+      { name: "Malowanie paznokci", price: "80zł" },
+      { name: "Ściągnięcie hybrydy/żelu", price: "50zł / 70zł" },
+    ],
+  },
+  {
+    title: "Brwi i rzęsy",
+    id: "brwi-rzesy",
+    items: [
+      { name: "Henna brwi", price: "55zł" },
+      { name: "Henna rzęsy", price: "30zł" },
+      { name: "Henna brwi i rzęsy", price: "65zł" },
+      { name: "Regulacja brwi", price: "30zł" },
+    ],
+  },
+];
 ---
 
 <Layout>
@@ -16,7 +100,6 @@ import Layout from "../layouts/Layout.astro";
         font="serif"
         weight="regular"
         class="text-center"
-        }
       >
         Sprawdź naszą ofertę i ceny
       </Typography>
@@ -33,6 +116,56 @@ import Layout from "../layouts/Layout.astro";
         konkurencyjnych cenach.
       </Typography>
       <SocialProof />
+    </div>
+
+    <!-- Price List Sections -->
+    <div class="grid grid-cols-1 gap-12 max-w-3xl mx-auto w-full">
+      {
+        pricingSections.map((section) => (
+          <section
+            aria-labelledby={section.id}
+            class="flex flex-col gap-8"
+            role="region"
+          >
+            <Typography
+              as="h3"
+              variant="h2"
+              font="serif"
+              id={section.id}
+              class="text-brand-950"
+            >
+              {section.title}
+            </Typography>
+
+            <div
+              role="table"
+              class="flex flex-col w-full"
+              aria-label={`Cennik ${section.title.toLowerCase()}`}
+            >
+              {section.items.map((service) => (
+                <div
+                  role="row"
+                  class="flex flex-col md:flex-row md:items-end justify-between gap-1 md:gap-4 w-full border-b border-[#E6C5CD] py-4 last:border-none md:hover:bg-brand-950/3 md:px-4 md:-mx-4"
+                >
+                  <span
+                    role="cell"
+                    class="font-medium shrink-0 font-sans text-lg md:text-base text-brand-950 md:text-brand-950/80"
+                  >
+                    {service.name}
+                  </span>
+
+                  <span
+                    role="cell"
+                    class="font-medium shrink-0 tabular-nums text-left md:text-right font-sans text-sm md:text-base text-brand-950/60 md:text-brand-900"
+                  >
+                    {service.price}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))
+      }
     </div>
   </Container>
 </Layout>

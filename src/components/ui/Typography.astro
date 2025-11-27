@@ -35,6 +35,7 @@ type TypographyVariants = VariantProps<typeof typographyVariants>;
 type Props = TypographyVariants & {
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
   class?: string;
+  id?: string;
 };
 
 const {
@@ -43,11 +44,15 @@ const {
   font = "sans",
   weight = "regular",
   class: className,
+  ...props
 } = Astro.props as Props;
 
 const Tag = as;
 ---
 
-<Tag class={cn(typographyVariants({ variant, font, weight }), className)}>
+<Tag
+  class={cn(typographyVariants({ variant, font, weight }), className)}
+  {...props}
+>
   <slot />
 </Tag>
